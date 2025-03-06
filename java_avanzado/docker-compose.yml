@@ -1,0 +1,13 @@
+services:
+  spring-boot-app:
+    build: .
+    volumes:
+      - ./demo/src:/app/src  # Monta el directorio de código para editar en tiempo real
+    ports:
+      - "9999:8080"
+    environment:
+      - JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+    command: ./mvnw spring-boot:run
+    stdin_open: true
+    tty: true
+
